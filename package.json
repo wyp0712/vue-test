@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "name": "vue-test",
+=======
+  "name": "vuetest",
+>>>>>>> b439571fd654a1fd85a0f976700778bd610fa0b5
   "version": "1.0.0",
   "description": "A Vue.js project",
   "author": "wyp <13263262903@163.com>",
@@ -11,11 +15,19 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+<<<<<<< HEAD
+=======
+    "element-ui": "^2.0.10",
+>>>>>>> b439571fd654a1fd85a0f976700778bd610fa0b5
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
+<<<<<<< HEAD
+=======
+    "axios": "^0.17.1",
+>>>>>>> b439571fd654a1fd85a0f976700778bd610fa0b5
     "babel-core": "^6.22.1",
     "babel-eslint": "^7.1.1",
     "babel-helper-vue-jsx-merge-props": "^2.0.3",

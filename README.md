@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # vue-test
+=======
+# vuetest
+>>>>>>> b439571fd654a1fd85a0f976700778bd610fa0b5
 
 > A Vue.js project
 
