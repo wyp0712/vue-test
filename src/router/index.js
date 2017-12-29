@@ -26,6 +26,26 @@ export default new Router({
     {
       path: '/four',
       component: resolve => require(['@/pages/page4'], resolve)
+    },
+    {
+      path: '/five',
+      component: resolve => require(['@/pages/page5'], resolve)
+    },
+    {
+      path: '/six',
+      component: resolve => require(['@/pages/page6'], resolve)
+    },
+    {
+      path: '/seven',
+      component: resolve => require(['@/pages/page7'], resolve)
+    },
+    {
+      path: '/eight',
+      component: resolve => require(['@/pages/page8'], resolve)
+    },
+    {
+      path: '/nine',
+      component: resolve => require(['@/pages/page9'], resolve)
     }
   ]
 })
