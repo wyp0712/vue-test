@@ -14,14 +14,18 @@ export default new Router({
     {   // 当首次进入页面时，页面没有显示任何组件；让页面一加载进来就默认显示first页面
       path: '/first', // 重定向，就是给它重新指定一个方向，加载一个组件
       component: resolve => require(['@/pages/page1.vue'], resolve)
+    },
+    {
+      path: '/second',
+      component: resolve => require(['@/pages/page2.vue'], resolve)
+    },
+    {
+      path: '/three',
+      component: resolve => require(['@/pages/page3'], resolve)
+    },
+    {
+      path: '/four',
+      component: resolve => require(['@/pages/page4'], resolve)
     }
-    // {
-    //   path: '/first',
-    //   component: resolve => require(['@/components/First'], resolve)
-    // },
-    // {
-    //   path: '/second',
-    //   component: resolve => require(['@/components/Second'], resolve)
-    // }
   ]
 })
