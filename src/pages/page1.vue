@@ -13,9 +13,10 @@
         <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
       </span>
     </el-dialog>
+
+    
   </div>
 </template>
-
 <script>
 export default {
   name: 'page1',
