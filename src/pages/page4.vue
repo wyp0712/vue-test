@@ -1,51 +1,126 @@
 <template>
     <div>
-        <el-collapse v-model="activeNames" @change="handleChange">
-            <el-collapse-item title="一致性 Consistency" name="1">
-              <div>与现实生活一致：与现实生活的流程、逻辑保持一致，遵循用户习惯的语言和概念；</div>
-              <div>在界面中一致：所有的元素和结构需保持一致，比如：设计样式、图标和文本、元素的位置等。</div>
-            </el-collapse-item>
-            <el-collapse-item title="反馈 Feedback" name="2">
-              <div>控制反馈：通过界面样式和交互动效让用户可以清晰的感知自己的操作；</div>
-              <div>页面反馈：操作后，通过页面元素的变化清晰地展现当前状态。</div>
-            </el-collapse-item>
-            <el-collapse-item title="效率 Efficiency" name="3">
-              <div>简化流程：设计简洁直观的操作流程；</div>
-              <div>清晰明确：语言表达清晰且表意明确，让用户快速理解进而作出决策；</div>
-              <div>帮助用户识别：界面简单直白，让用户快速识别而非回忆，减少用户记忆负担。</div>
-            </el-collapse-item>
-            <el-collapse-item title="可控 Controllability" name="4">
-              <div>用户决策：根据场景可给予用户操作建议或安全提示，但不能代替用户进行决策；</div>
-              <div>结果可控：用户可以自由的进行操作，包括撤销、回退和终止当前操作等。</div>
-            </el-collapse-item>
-          </el-collapse>
+        <div class="marquee">
+            <div class="marquee_title">
+                <span>最新战报</span>
+            </div>
+            <div class="marquee_box">
+                <ul class="marquee_list" :style="{ top: -num + 'px'}" :class="{marquee_top:num}">
+                <!-- 当显示最后一条的时候（num=0转换布尔类型为false）去掉过渡效果-->
+                    <li v-for="(item, index) in marqueeList" >
+                        <span>{{item.name}}</span>
+                        <span>在</span>
+                        <span class="red"> {{item.city}}</span>
+                        <span>杀敌</span>
+                        <span class="red"> {{item.amount}}</span>
+                        <span>万</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
   </template>
   
   <script>
   export default {
-    name: 'page1',
+    name: 'page4',
     data () {
       return {
-        msg: 'this is elementui',
-        dialogVisible: false,
-        activeNames: ['1']
+        num:0,
+            marqueeList: [
+                {
+                    name:'1军',
+                    city:'北京',
+                    amount:'10'
+                },
+                {
+                    name:'2军',
+                    city:'上海',
+                    amount:'20'
+                },
+                {
+                    name:'3军',
+                    city:'广州',
+                    amount:'30'
+                },
+                {
+                    name:'4军',
+                    city:'重庆',
+                    amount:'40'
+                }
+            ]
       }
     },
     created () {
+      this.showMarquee(this.num)
     },
     methods: {
-      handleClose (done) {
-        this.$confirm('确认关闭？')
-          .then(_ => {
-            done()
-          })
-          .catch(_ => {})
-      }
+      showMarquee:function (num) {
+        this.marqueeList.push(this.marqueeList[0]);
+        var max = this.marqueeList.length;
+        var that = this;
+        marqueetimer =  setInterval(function(){
+            num++;
+            if(num>=max ){
+                num=0;
+            }
+            that.num=num*30;
+        }, 2000);
+    }
     }
   }
   </script>
   
-  <style>
+  <style scoped>
+     div,ul,li,span,img{
+            margin:0;
+            padding:0;
+            display: flex;
+            box-sizing: border-box;
+        }
+        .marquee{
+            width: 100%;
+            height: 50px;
+            align-items: center;
+            color: #3A3A3A;
+            background-color: aqua;
+            display: flex;
+            box-sizing: border-box;
+        }
+        .marquee_title{
+            padding: 0 20px;
+            height: 30px;/*关键样式*/
+            font-size: 14px;
+            border-right: 1px solid #d8d8d8;
+            align-items: center;
+        }
+
+        .marquee_box{
+            display: block;
+            position: relative;
+            width: 60%;
+            height: 30px;/*关键样式*/
+            overflow: hidden;
+        }
+        .marquee_list{
+            display: block;
+            position: absolute;
+            top:0;
+            left: 0;
+        }
+        .marquee_top{transition: top 0.5s ;}/*关键样式*/
+        .marquee_list li{
+            height: 30px;/*关键样式*/
+            line-height: 30px;/*关键样式*/
+            font-size: 14px;
+            padding-left: 20px;
+            background-color: #fff;
+        }
+        .marquee_list li span{
+            padding:0 2px;
+        }
+        .red{
+            color: #FF0101;
+        }
   </style>
   

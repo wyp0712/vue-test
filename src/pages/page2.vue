@@ -1,106 +1,81 @@
 <template>
   <div>
-    <div class="box">
-      <div class="top">
-        <el-tooltip class="item" effect="dark" content="Top Left 提示文字" placement="top-start">
-          <el-button>上左</el-button>
-        </el-tooltip>
-        <el-tooltip class="item" effect="dark" content="Top Center 提示文字" placement="top">
-          <el-button>上边</el-button>
-        </el-tooltip>
-        <el-tooltip class="item" effect="dark" content="Top Right 提示文字" placement="top-end">
-          <el-button>上右</el-button>
-        </el-tooltip>
-      </div>
-      <div class="left">
-        <el-tooltip class="item" effect="dark" content="Left Top 提示文字" placement="left-start">
-          <el-button>左上</el-button>
-        </el-tooltip>
-        <el-tooltip class="item" effect="dark" content="Left Center 提示文字" placement="left">
-          <el-button>左边</el-button>
-        </el-tooltip>
-        <el-tooltip class="item" effect="dark" content="Left Bottom 提示文字" placement="left-end">
-          <el-button>左下</el-button>
-        </el-tooltip>
-      </div>
 
-      <div class="right">
-        <el-tooltip class="item" effect="dark" content="Right Top 提示文字" placement="right-start">
-          <el-button>右上</el-button>
-        </el-tooltip>
-        <el-tooltip class="item" effect="dark" content="Right Center 提示文字" placement="right">
-          <el-button>右边</el-button>
-        </el-tooltip>
-        <el-tooltip class="item" effect="dark" content="Right Bottom 提示文字" placement="right-end">
-          <el-button>右下</el-button>
-        </el-tooltip>
-      </div>
-      <div class="bottom">
-        <el-tooltip class="item" effect="dark" content="Bottom Left 提示文字" placement="bottom-start">
-          <el-button>下左</el-button>
-        </el-tooltip>
-        <el-tooltip class="item" effect="dark" content="Bottom Center 提示文字" placement="bottom">
-          <el-button>下边</el-button>
-        </el-tooltip>
-        <el-tooltip class="item" effect="dark" content="Bottom Right 提示文字" placement="bottom-end">
-          <el-button>下右</el-button>
-        </el-tooltip>
-      </div>
-    </div>
+    <h1>{{$store.state.count}}</h1>
+    <h3>{{msg}}</h3>
+
+     <button @click="actionName()">+</button>
+    <button @click="actionReduce">-</button>
+
   </div>
 </template>
 
 <script>
+import { Button, Select } from 'element-ui'
+import store from '../store/index'
+import {mapState, mapGetters, mapActions, mapMutations} from 'vuex'
 export default {
-  name: 'page1',
   data () {
-    return {
-      msg: 'this is elementui',
-      dialogVisible: false
+    return {  
+      show: true,
+      msg: 'this is master'
     }
+  },
+  computed: {
+    ...mapState({
+      count: state => state.count
+    }),
+    ...mapGetters([
+      'strLength'
+    ]),
   },
   created () {
+    console.log(this.strLength)
   },
   methods: {
-    handleClose (done) {
-      this.$confirm('确认关闭？')
-        .then(_ => {
-          done()
-        })
-        .catch(_ => {})
+    ...mapActions([
+      'actionName',
+      'actionReduce'
+    ])
     }
-  }
 }
 </script>
 
-<style scoped lang="scss">
-  .box {
-    width: 400px;
-    .top {
-      text-align: center;
-    }
-    .left {
-      float: left;
-      width: 60px;
-    }
-
-    .right {
-      float: right;
-      width: 60px;
-    }
-
-    .bottom {
-      clear: both;
-      text-align: center;
-    }
-
-    .item {
-      margin: 4px;
-    }
-
-    .left .el-tooltip__popper,
-    .right .el-tooltip__popper {
-      padding: 8px 10px;
-    }
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+  button{
+    width:50px;
+    height:50px;
+    background:red;
+    font-size: 25px;
+    text-align: center;
+    border:1px solid #ccc;
+    margin-left:20px;
   }
+.transition-box {
+    margin-bottom: 10px;
+    width: 200px;
+    height: 100px;
+    border-radius: 4px;
+    background-color: #409EFF;
+    text-align: center;
+    color: #fff;
+    padding: 40px 20px;
+    box-sizing: border-box;
+    margin-right: 20px;
+  }
+h1, h2 {
+  font-weight: normal;
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+li {
+  display: inline-block;
+  margin: 0 10px;
+}
+a {
+  color: #42b983;
+}
 </style>

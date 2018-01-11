@@ -7,7 +7,12 @@
 
 <script>
 export default {
-  name: 'app'
+  name: 'app',
+  created() {
+    this.$http.get('../static/dict.json').then((rs) => {
+      window.$dict = rs.data.data
+    })
+  }
 }
 </script>
 <style>
