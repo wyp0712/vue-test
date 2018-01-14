@@ -50,9 +50,9 @@ export default {
     }
   },
   created() {
-    this.$http.get('../static/dict.json').then((rs) => {
-      window.$dict = rs.data.data
-    })
+    // this.$http.get('../static/dict.json').then((rs) => {
+    //   window.$dict = rs.data.data
+    // })
   },
   mounted() {
     // const {baseFields: BASE_FIELDS_CATEGORY} = window.$sti_dict;
