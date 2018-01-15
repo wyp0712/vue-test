@@ -28,43 +28,31 @@ new Vue({
   components: { App },
   data () {
     return {
-      baseFields: [],
-      parentParam: ['001', '002', '003']
+      datalist: {},
+      api: [],
+      parentParam: ['001', '002', '003'],
+      tabdatalist: []
     }
   },
   created () {
-    let api = {}
-    this.$http.get('../static/dict.json').then((res) => {
-      window.$dict = res.data.data
-      this.baseFields = window.$dict.baseFields
-      let dictKeys = Object.keys(this.baseFields.event_type_short)
-      let tmpData = this.parentParam
-      for (let strkey in tmpData) {
-        console.log(tmpData[strkey])
-        console.log(dictKeys)
-        
-        if(tmpData[strkey] == dictKeys){
-           console.log(4545454)
-        } 
-        // if (dictKeys.indexOf(tmpData[strkey])) {
-        //   let dictKeys = Object.values(this.baseFields.event_type_short)
-        //   console.log(dictKeys)
-        // }
-        // if (tmpData[strkey] == dictKeys) {
-        //   console.log('sssssss')
-        // }
-        // if (dictKeys.indexOf("002") >= 0) {
-        //    console.log("thisis dict")
-        //   if (strkey === '"event_type_short"') {
-        //      console.log(strkey)
-        //   }
-        // }
-      }
+    const promise = new Promise((resolve, reject) => {
+      this.$http.get('../static/dict.json').then((rs) => {
+        this.datalist = rs.data.data
+        resolve(this.datalist)
+      })
+    })
 
-      // api = window.$dict.baseFields.event_type_short
-      // for (let key in api) {
-      //    console.log(key)
-      // }
+    promise.then((rs) => {
+      this.api = Object.keys(rs.alert.explanation)
+      console.log(this.api)
+      for (let strkeys in this.parentParam) {
+        console.log(this.parentParam[strkeys])
+        if (this.api.indexOf(this.parentParam[strkeys])) {
+          console.log('zhaodao le ')
+          this.tabdatalist[this.parentParam[strkeys]] = this.api['001']
+          console.log(this.tabdatalist)
+        }
+      }
     })
   }
 })
