@@ -31,12 +31,14 @@ new Vue({
       datalist: {},
       api: [],
       parentParam: ['001', '002', '003'],
-      tabdatalist: []
+      tabdatalist: [],
+      value: []
     }
   },
   created () {
     const promise = new Promise((resolve, reject) => {
       this.$http.get('../static/dict.json').then((rs) => {
+        window.$dict = rs.data.data
         this.datalist = rs.data.data
         resolve(this.datalist)
       })
@@ -44,15 +46,9 @@ new Vue({
 
     promise.then((rs) => {
       this.api = Object.keys(rs.alert.explanation)
-      console.log(this.api)
-      for (let strkeys in this.parentParam) {
-        console.log(this.parentParam[strkeys])
-        if (this.api.indexOf(this.parentParam[strkeys])) {
-          console.log('zhaodao le ')
-          this.tabdatalist[this.parentParam[strkeys]] = this.api['001']
-          console.log(this.tabdatalist)
-        }
-      }
+
+      this.api.map((rs) => {
+      })
     })
   }
 })
