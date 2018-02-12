@@ -15,7 +15,7 @@ export default new Router({
       component: resolve => require(['@/pages/page1.vue'], resolve)
     },
     {
-      path: '/',
+      path: '/two',
       component: resolve => require(['@/pages/page2.vue'], resolve)
     },
     {
@@ -39,7 +39,7 @@ export default new Router({
       component: resolve => require(['@/pages/page7'], resolve)
     },
     {
-      path: '/eight',
+      path: '/',
       component: resolve => require(['@/pages/page8'], resolve)
     },
     {

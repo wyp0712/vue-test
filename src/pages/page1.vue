@@ -110,21 +110,17 @@ export default {
   }
 }
 </script>
-<style>
-
+<style lang="scss" scoped>
   .scroll-wrap{
-    /* width: 200px; */
-    /* height: 50px; */
     border: 1px solid blue;
     overflow: hidden;
   }
-  
   .scroll-content{
     position: relative;
     transition: top 0.5s;
-    li{
-      line-height: 50px;
-      text-align: center;
-    }
+  }
+  .scroll-content li{
+    line-height:50px;
+    text-align:center;
   }
 </style>
