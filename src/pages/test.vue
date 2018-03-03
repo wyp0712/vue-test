@@ -32,7 +32,7 @@
         },
         created() {
           // 实例 初始化时候的生命zhouqi
-          console.log(this, 'vueVm')
+          
         },
         mounted() {
           // dom作的地方

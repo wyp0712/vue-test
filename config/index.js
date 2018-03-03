@@ -6,15 +6,22 @@ const path = require('path')
 
 module.exports = {
   dev: {
-
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+      '/api': {
+        target: 'http://101.201.110.191:8080',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api': ''
+        }
+      }
+    },
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
-    port: 4000, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
+    port: 5000, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
     autoOpenBrowser: true,
     errorOverlay: true,
     notifyOnErrors: true,
@@ -46,6 +53,58 @@ module.exports = {
     // In our experience, they generally work as expected,
     // just be aware of this issue when enabling this option.
     cssSourceMap: false,
+    before (apiRoutes) {
+      console.log(this.axios)
+      apiRoutes.get('/lyric', function (req, res) {
+        var url = 'https://c.y.qq.com/lyric/fcgi-bin/fcg_query_lyric_new.fcg'
+        this.axios.get(url, {
+          headers: {
+            referer: 'https://c.y.qq.com/',
+            host: 'c.y.qq.com'
+          },
+          params: req.query
+        }).then((response) => {
+          var ret = response.data
+          if (typeof ret === 'string') {
+            //  /* \w:字母、数字、下划线   中间就是以大括号开始，小括号结束且不为（ 、）的字符，一个和多个*/
+            var reg = /^\w+\(({[^()]+})\)$/ // /*==> MusicJsonCallback({\"retcode\":0,\"code\":0,\"subcode\...."})*/
+            var matches = ret.match(reg)
+            if (matches) {
+              ret = JSON.parse(matches[1])
+            }
+          }
+          res.json(ret)
+        }).catch((e) => {
+          console.log(e)
+        })
+      })
+    },
+    after (apiRoutes) {
+      apiRoutes.get('/lyric', function (req, res) {
+        var url = 'https://c.y.qq.com/lyric/fcgi-bin/fcg_query_lyric_new.fcg'
+        this.axios.get(url, {
+          headers: {
+            referer: 'https://c.y.qq.com/',
+            host: 'c.y.qq.com'
+          },
+          params: req.query
+        }).then((response) => {
+          var ret = response.data
+          if (typeof ret === 'string') {
+             // /* \w:字母、数字、下划线   中间就是以大括号开始，小括号结束且不为（ 、）的字符，一个和多个*/
+            var reg = /^\w+\(({[^()]+})\)$/ // /*==> MusicJsonCallback({\"retcode\":0,\"code\":0,\"subcode\...."})*/
+            var matches = ret.match(reg)
+            if (matches) {
+              ret = JSON.parse(matches[1])
+            }
+          }
+          res.json(ret)
+          console.log(res.json(ret))
+        }).catch((e) => {
+          console.log(e)
+        })
+      })
+    }
   },
 
   build: {
@@ -61,7 +120,7 @@ module.exports = {
      * Source Maps
      */
 
-    productionSourceMap: true,
+    productionSourceMap: false,
     // https://webpack.js.org/configuration/devtool/#production
     devtool: '#source-map',
 
