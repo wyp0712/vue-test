@@ -5,7 +5,9 @@ Vue.use(Vuex)
 
 const state = {
   count: 1,
-  aString: 'ccccccc'
+  aString: 'ccccccc',
+  companyId: 0,
+  companyStatus: ''
 }
 
 const getters = {
@@ -31,6 +33,9 @@ const actions = {
   actionReduce ({ commit }) {
     // dosomething
     commit('reduce')
+  },
+  changeCompanyId: ({commit}, companyId) => {
+    commit(companyId)
   }
 }
 

@@ -1,8 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
-import page1 from '../pages/page1.vue'
-import page2 from '../pages/test.vue'
 
 Vue.use(Router)
 
@@ -14,39 +11,39 @@ export default new Router({
     //   component: HelloWorld
     // },
     {   // 当首次进入页面时，页面没有显示任何组件；让页面一加载进来就默认显示first页面
-      path: '/first', // 重定向，就是给它重新指定一个方向，加载一个组件
+      path: '/page1', // 重定向，就是给它重新指定一个方向，加载一个组件
       component: resolve => require(['@/pages/page1.vue'], resolve)
     },
     {
-      path: '/two',
+      path: '/page2',
       component: resolve => require(['@/pages/page2.vue'], resolve)
     },
     {
-      path: '/three',
+      path: '/page3',
       component: resolve => require(['@/pages/page3'], resolve)
     },
     {
-      path: '/four',
+      path: '/page4',
       component: resolve => require(['@/pages/page4'], resolve)
     },
     {
-      path: '/five',
+      path: '/page5',
       component: resolve => require(['@/pages/page5'], resolve)
     },
     {
-      path: '/six',
+      path: '/page6',
       component: resolve => require(['@/pages/page6'], resolve)
     },
     {
-      path: '/seven',
+      path: '/page7',
       component: resolve => require(['@/pages/page7'], resolve)
     },
     {
-      path: '/',
+      path: '/page8',
       component: resolve => require(['@/pages/page8'], resolve)
     },
     {
-      path: '/nine',
+      path: '/page9',
       component: resolve => require(['@/pages/page9'], resolve)
     },
     {
