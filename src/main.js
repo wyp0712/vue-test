@@ -36,6 +36,7 @@ new Vue({
     }
   },
   created () {
+    console.log(this)
     const promise = new Promise((resolve, reject) => {
       this.$http.get('../static/dict.json').then((rs) => {
         window.$dict = rs.data.data
