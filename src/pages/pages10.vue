@@ -1,17 +1,40 @@
 <template>
-  <el-input-number v-model="num1" @change="handleChange" :min="1" :max="10" label="描述文字"></el-input-number>
+  <!-- <el-input-number v-model="num1" @change="handleChange" :min="1" :max="10" label="描述文字"></el-input-number> -->
+ 
+<div>
+  {{num1}}
+   <div id="myChart" :style="{width: '300px', height: '300px'}"></div>
+</div>
 </template>
 <script>
   export default {
     data() {
       return {
-        num1: 1
+        num1: 'this is page9'
       };
     },
+    mounted(){
+      this.drawLine()
+    },
     methods: {
-      handleChange(value) {
-        console.log(value);
-      }
+      drawLine(){
+        // 基于准备好的dom，初始化echarts实例
+        let myChart = this.$echarts.init(document.getElementById('myChart'))
+        // 绘制图表
+        myChart.setOption({
+            title: { text: '在Vue中使用echarts' },
+            tooltip: {},
+            xAxis: {
+                data: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
+            },
+            yAxis: {},
+            series: [{
+                name: '销量',
+                type: 'bar',
+                data: [5, 20, 36, 10, 10, 20]
+            }]
+        });
+     }
     }
   };
 </script>

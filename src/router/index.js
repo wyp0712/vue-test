@@ -47,6 +47,10 @@ export default new Router({
       component: resolve => require(['@/pages/page9'], resolve)
     },
     {
+      path: '/',
+      component: resolve => require(['@/pages/pages10'], resolve)
+    },
+    {
       path: '/page11',
       component: resolve => require(['@/pages/page11'], resolve)
     }

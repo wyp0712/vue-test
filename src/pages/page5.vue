@@ -12,11 +12,11 @@
     export default {
       data () {
         return {
-          animate:false,
-          items:[
-              {name:"马云"},
-              {name:"雷军"},
-              {name:"王勤"}
+          animate: false,
+          items: [
+              {name: '马云'},
+              {name: '马云'},
+              {name: '马云'}
           ]
         }
       },
@@ -34,8 +34,8 @@
        }
       }
     }
-  </script>
-  <style lang="" scoped>
+</script>
+<style lang="" scoped>
     *{
     margin: 0 ;
     padding: 0;

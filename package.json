@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "axios": "^0.17.1",
+    "echarts": "^4.0.4",
     "element-ui": "^2.0.10",
     "node-sass": "^4.7.2",
     "sass-loader": "^6.0.6",

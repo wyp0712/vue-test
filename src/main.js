@@ -10,6 +10,10 @@ import store from './store/index.js'
 import locale from 'element-ui/lib/locale/lang/en'
 import axios from 'axios'
 // import initdict from './dict'
+// 引入echarts
+import echarts from 'echarts'
+
+Vue.prototype.$echarts = echarts
 
 Vue.use(Vuex)
 Vue.use(ElementUI)
