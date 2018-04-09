@@ -53,6 +53,10 @@ export default new Router({
     {
       path: '/page11',
       component: resolve => require(['@/pages/page11'], resolve)
+    },
+    {
+      path: '/check',
+      component: resolve => require(['@/pages/checkbox.vue'], resolve)
     }
   ]
 })
