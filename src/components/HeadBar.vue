@@ -13,10 +13,7 @@
     },
     created() {
       this.$http.get('../../static/dict.json').then(rs => {
-        console.log(rs.data.data.notifyTime)
         this.msg = rs.data.data.notifyTime
-
-        console.log(this.msg)
       })
     }
   }

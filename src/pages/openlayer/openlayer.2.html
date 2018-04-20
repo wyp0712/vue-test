@@ -1,0 +1,100 @@
+<!Doctype html>
+<html xmlns=http://www.w3.org/1999/xhtml>
+<head>                  
+  <meta http-equiv=Content-Type content="text/html;charset=utf-8">
+  <meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1">
+  <meta content=always name=referrer>
+  <title>OpenLayers 3地图示例</title>
+  <link rel="stylesheet" href="https://openlayers.org/en/v4.6.4/css/ol.css" type="text/css">
+  <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL"></script>
+  <script type="text/javascript" src="https://openlayers.org/en/v4.6.4/build/ol.js" charset="utf-8"></script>
+
+  <style type="text/css">  
+
+  </style>  
+  </head>
+
+<body>
+
+<div id="map" class="map"></div>
+<script type="text/javascript">
+
+var map = new ol.Map({
+  layers: [
+    new ol.layer.Tile({
+      source: new ol.source.OSM()
+    })
+  ],
+  target: 'map',
+  view: new ol.View({
+    center: [0, 0],
+    zoom: 2
+  })
+});
+
+var imageStyle = new ol.style.Style({
+  image: new ol.style.Circle({
+    radius: 6,
+    snapToPixel: true,
+    fill: new ol.style.Fill({color: 'red'}),
+    stroke: new ol.style.Stroke({color: 'red', width: 5})
+  })
+});
+
+var headInnerImageStyle = new ol.style.Style({
+  image: new ol.style.Circle({
+    radius: 6,
+    snapToPixel: true,
+    fill: new ol.style.Fill({color: 'yellow'})
+  })
+});
+
+var headOuterImageStyle = new ol.style.Style({
+  image: new ol.style.Circle({
+    radius: 5,
+    snapToPixel: false,
+    fill: new ol.style.Fill({color: 'yellow'})
+  })
+});
+
+var n = 200;
+var omegaTheta = 50000; // Rotation period in ms
+var R = 7e6;
+var r = 2e6;
+var p = 2e6;
+map.on('postcompose', function(event) {
+
+  var vectorContext = event.vectorContext;
+  console.log(vectorContext, 'theta')
+  var frameState = event.frameState;
+  console.log(frameState, 'theta')
+  var theta = 2 * Math.PI * frameState.time / omegaTheta;
+
+  var coordinates = [];
+  var i;
+  for (i = 0; i < n; ++i) {
+    var t = theta + 2 * Math.PI * i / n;
+    var x = (R + r) * Math.cos(t) + p * Math.cos((R + r) * t / r);
+    var y = (R + r) * Math.sin(t) + p * Math.sin((R + r) * t / r);
+    coordinates.push([x]);
+  }
+  vectorContext.setStyle(imageStyle);
+  vectorContext.drawGeometry(new ol.geom.MultiPoint(coordinates));
+
+  var headPoint = new ol.geom.Point(coordinates[coordinates.length - 1]);
+
+  vectorContext.setStyle(headOuterImageStyle);
+  vectorContext.drawGeometry(headPoint);
+
+  vectorContext.setStyle(headInnerImageStyle);
+  vectorContext.drawGeometry(headPoint);
+
+  map.render();
+});
+map.render();
+
+
+</script>
+</body>
+
+</html>
