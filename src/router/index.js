@@ -61,6 +61,10 @@ export default new Router({
     {
       path: '/three',
       component: resolve => require(['@/pages/three/three.vue'], resolve)
+    },
+    {
+      path: '/flagon',
+      component: resolve => require(['@/pages/three/falon.vue'], resolve)
     }
   ]
 })
