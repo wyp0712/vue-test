@@ -1,5 +1,5 @@
 {
-  "name": "gogs-first",
+  "name": "devin-vue",
   "version": "1.0.0",
   "description": "A Vue.js project",
   "author": "wyp <13263262903@163.com>",
@@ -18,7 +18,8 @@
     "sass-loader": "^6.0.6",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",
-    "vuex": "^3.0.1"
+    "vuex": "^3.0.1",
+    "@test/FGL": "0.0.11"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
