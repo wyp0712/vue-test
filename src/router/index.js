@@ -65,6 +65,10 @@ export default new Router({
     {
       path: '/flagon',
       component: resolve => require(['@/pages/three/falon.vue'], resolve)
+    },
+    {
+      path: '/calendar',
+      component: resolve => require(['@/pages/calendar/index.vue'], resolve)
     }
   ]
 })
