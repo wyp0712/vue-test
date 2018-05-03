@@ -53,10 +53,12 @@ module.exports = {
     // In our experience, they generally work as expected,
     // just be aware of this issue when enabling this option.
     cssSourceMap: false,
-    externals: {
-      jquery: 'jQuery'
-    },
-
+    externals: [{
+      var: 'THREE',
+      package: 'THREE',
+      path: '/node_modules/three/build/three.js',
+      chunk: ['index']
+    }],
     before (apiRoutes) {
       console.log(this.axios)
       apiRoutes.get('/lyric', function (req, res) {

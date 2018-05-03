@@ -1,0 +1,48 @@
+<!Doctype html>
+<html xmlns=http://www.w3.org/1999/xhtml>
+<head>                  
+    <meta http-equiv=Content-Type content="text/html;charset=utf-8">
+    <meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1">
+    <meta content=always name=referrer>
+    <title>OpenLayers 3地图示例</title>
+    <link rel="stylesheet" href="https://openlayers.org/en/v4.6.4/css/ol.css" type="text/css">
+    <!-- <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL"></script> -->
+    <script type="text/javascript" src="https://openlayers.org/en/v4.6.4/build/ol.js" charset="utf-8"></script>
+
+    <style type="text/css">  
+     .css_animation{  
+        height:50px;  
+        width:50px;  
+        border-radius: 25px;  
+        background: rgba(255, 0, 0, 0.9);  
+        transform: scale(0);  
+        animation: myfirst 3s;  
+        animation-iteration-count: infinite;  
+    }  
+  
+    @keyframes myfirst{  
+        to{  
+            transform: scale(2);  
+            background: rgba(0, 0, 0, 0);  
+        }  
+    } 
+  </style>  
+  </head>
+
+<body>
+
+<div id="map" class="css_animation"></div>
+<script type="text/javascript">
+   var point_div = document.createElement('div');  
+     point_div.className="css_animation";  
+     point_overlay = new ol.Overlay({  
+         element: point_div,  
+         positioning: 'center-center'  
+     });  
+     map.addOverlay(point_overlay);  
+     point_overlay.setPosition(coordinate);  
+
+</script>
+</body>
+
+</html>

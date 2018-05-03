@@ -1,0 +1,231 @@
+.sti-vis-assetManagement-map{
+  width: 100%;
+  height: 100%;
+  position:relative;
+  margin-top: -50px;
+  .map-num {
+    width: 100%;
+    // position: absolute;
+    // top: -45px;
+    // left: 0;
+    // z-index: 1;
+  }
+  .map-legend {
+    position: absolute;
+    top: 98%;
+    left: 0;
+    width: 100%;
+    height: 120px;
+  }
+  .map-inner{
+    width: 100%;
+    height: 86%;
+    // background:url('./static/shanghaimap.png') no-repeat;
+    // background-size: 100% 100%;
+   .region-tip{
+     position: relative;
+     .region-content{
+       opacity: 0;
+     }
+     .region-content:hover{
+      opacity: 1;
+      transition: all 1s;
+    }
+     .region_bg{
+        cursor: pointer;
+        width: 20px;
+        height: 20px;
+        display: inline-block;
+        // background: url('./static/黄色.svg') no-repeat;
+        background-size: 100% 100%;
+     }
+     .region-content{
+        display: inline-block;
+        position: absolute;
+        color: #ff9934;
+        z-index: 100;
+        // &:nth-child(1) {
+        //   left: 48%;
+        //   top: 92px;
+        // }
+        // &:nth-child(2) {
+        //   left: 44%;
+        //  top: 138px;
+        // }
+        // &:nth-child(3) {
+        //   left: 56%;
+        //   top: 236px;
+        // }
+        // &:nth-child(4) {
+        //   left: 55%;
+        //   top: 114px;
+        // }
+        // &:nth-child(5) {
+        //   left: 36%;
+        //   top: 101px;
+        // }
+        // &:nth-child(6) {
+        //   left: 52%;
+        //   top: 116px;
+        // } 
+        // &:nth-child(7) {
+        //   left: 68%;
+        //   top: 172px;
+        // }
+        // &:nth-child(8) {
+        //   left: 15%;
+        //   top: 174px;
+        // }
+        // &:nth-child(9) {
+        //   left: 52%;
+        //   top: 134px;
+        // }
+        // &:nth-child(10) {
+        //   left: 46%;
+        //   top: 123px;
+        // }
+        // &:nth-child(11) {
+        //   left: 29%;
+        //   top: 200px;
+        // }
+        // &:nth-child(12) {
+        //   left: 50%;
+        //   top: 159px;
+        // }
+        // &:nth-child(13) {
+        //   left: 54%;
+        //   top: 128px;
+        // }
+        // &:nth-child(14) {
+        //   left: 57%;
+        //   top: 52px;
+        // }
+        // &:nth-child(15) {
+        //   left: 34%;
+        //   top: 274px;
+        // }
+        // &:nth-child(16) {
+        //   left: 44%;
+        //   top: 189px;
+        // }
+     }
+   }
+   .region-line{
+     opacity: 0
+   }
+   .region-line-more{
+     width: 100%;
+     height: 100%;
+     position: absolute;
+     opacity: 1;
+     transition: all 1s;
+     .line{
+       display: inline-block;
+       width: 100%;
+       height: 100%;
+       background: url('./static/line_more.png') no-repeat;
+       background-size: 100% 100%;
+     }
+   }
+   .region-line-middle{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+
+    .line{
+      display: inline-block;
+      width: 100%;
+      height: 100%;
+      background: url('./static/line_middle.png') no-repeat;
+      background-size: 100% 100%;
+    }
+  }
+  .region-line-few{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+
+    .line{
+      display: inline-block;
+      width: 100%;
+      height: 100%;
+      background: url('./static/line_few.png') no-repeat;
+      background-size: 100% 100%;
+    }
+  }
+    .map-left{
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 15%;
+      z-index: 10;
+      svg g{
+        cursor:pointer;
+      }
+    }
+    .map-back{
+      position: absolute;
+      width: 70%;
+      height: 46%;
+      z-index: 5;
+      left: 20%;
+      bottom: -5%;
+      background: url('./static/sh_back.png') no-repeat;
+      background-size:100% 100%; 
+      svg g{
+        cursor:pointer;
+      }
+    }
+    .map-total-num{
+      width: 140px;
+      height: 63px;
+      cursor:pointer;
+      position: absolute;
+      left: 43%;
+      top: 86%;
+      z-index: 100;
+    }
+    .tooltip, .areatooltip{
+      position:absolute;
+      background:rgba(0,0,0,0.7);
+      padding:15px;
+      color:#dddddd;
+      border-radius: 8px;
+      width:120px;
+      z-index:100;
+      .title{color:#00d3ff;}
+      .num{color:#dddddd;padding-left:5px;}
+      .totalNum{color:#fff;font-size:16px;}
+      .totalTitle{color:#00d3ff;font-size:15px;}
+    }
+    .btn-return{position:absolute;right:0px;bottom:20px;z-index:99;}
+    .map-right{
+      width:40%;height:100%;
+      position:relative;
+      box-sizing: border-box;
+      flex:0 1 auto;
+      display:flex;
+      flex-direction:row;
+      flex-wrap:nowrap;
+      align-items:center;
+      .cityArea-info{width:40%;height:90%;box-sizing:border-box;display:flex;flex-direction: column;justify-content: center; align-items:center;}
+      .cityArea-title{ line-height: 1.5em;margin:0 0 20px 0;font-size: 18px;color:#5c8dc1;
+        .province-name{cursor:pointer;}
+        .province-name:hover{color:#3bd5ff;}
+        .city-name{}
+        .area-name{}
+        .selectedAreaCity{font-size:22px;color:#3bd5ff;}
+      }
+      .list {
+        li{padding-bottom:7px;
+          .title{color:#3bd5ff;font-size:18px;white-space: nowrap;line-height: 1.5em;}
+          .num{color:#ebd955;font-size:20px;padding-left:4px;}
+          .subtitle{font-size:16px;}
+          .subNum{color:#c3e93c;font-size:18px;padding-left:8px;}
+        }
+      }
+      .chart-column{width:60%;height:70%;margin:0 auto;overflow:hidden;box-sizing:border-box;}
+    }
+  }
+}

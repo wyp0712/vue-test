@@ -57,6 +57,14 @@ export default new Router({
     {
       path: '/check',
       component: resolve => require(['@/pages/checkbox.vue'], resolve)
+    },
+    {
+      path: '/three',
+      component: resolve => require(['@/pages/three/three.vue'], resolve)
+    },
+    {
+      path: '/flagon',
+      component: resolve => require(['@/pages/three/falon.vue'], resolve)
     }
   ]
 })

@@ -8,13 +8,22 @@
     <link rel="stylesheet" href="https://openlayers.org/en/v4.6.4/css/ol.css" type="text/css">
     <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL"></script>
     <script type="text/javascript" src="https://openlayers.org/en/v4.6.4/build/ol.js" charset="utf-8"></script>
-</head>
+
+    <style type="text/css">  
+      #menu  
+      {  
+          position:absolute;  
+          bottom :10px;  
+          z-index:2000;  
+      }  
+  </style>  
+  </head>
 
 <body>
     <div id="map" style="width: 100%"></div>
     <script>
 
-var raster = new ol.layer.Tile({
+      var raster = new ol.layer.Tile({
         source: new ol.source.OSM()
       });
 

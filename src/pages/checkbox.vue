@@ -22,6 +22,8 @@
         </ul>
       </div>
 
+      <footerbar></footerbar>
+
   </div>
 </template>
 <script>

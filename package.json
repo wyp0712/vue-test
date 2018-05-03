@@ -16,10 +16,11 @@
     "element-ui": "^2.0.10",
     "node-sass": "^4.7.2",
     "sass-loader": "^6.0.6",
+    "three": "^0.92.0",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1",
-    "@test/FGL": "0.0.11"
+    "@turf/turf": "^5.1.6"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
