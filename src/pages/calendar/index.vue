@@ -27,9 +27,13 @@
             </tr>
          </thead>
       </table>
+      <div id="container"></div>
   </div>
 </template>
 <script>
+let fly = require('./fline.js');
+console.log(fly.flyline)
+
   export default {
     name: 'calendarContainer',
     data() {
