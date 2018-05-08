@@ -27,6 +27,7 @@
             </tr>
          </thead>
       </table>
+      <div id="container"></div>
   </div>
 </template>
 <script>
