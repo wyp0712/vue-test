@@ -15,7 +15,7 @@
 // import '../../store'
 // import securityEventNum from '../securityEventNum/index.vue';
 // import attackType from '../attackType/index'
-import './style'
+// import './style'
 // import centerDistrct from './js/districtCenter.js'
 
 // import * as GEO_MAP from './js/shanghai_json.js'

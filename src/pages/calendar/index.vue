@@ -30,6 +30,12 @@
   </div>
 </template>
 <script>
+  import shanghai from '../three/shanghai.json'
+
+  const turf = require('@turf/turf')
+  var center = turf.centroid(shanghai).geometry.coordinates
+  const THREE = window.THREE;
+  console.log(three, 'THREE')
   export default {
     name: 'calendarContainer',
     data() {

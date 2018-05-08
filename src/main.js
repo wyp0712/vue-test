@@ -9,6 +9,8 @@ import Vuex from 'vuex'
 import store from './store/index.js'
 import locale from 'element-ui/lib/locale/lang/en'
 import axios from 'axios'
+// import three from 'three'
+
 // import initdict from './dict'
 // 引入echarts
 import echarts from 'echarts'
@@ -16,6 +18,10 @@ import echarts from 'echarts'
 import './components/global.js'
 import './pages/components/global.js'
 
+// var THREE = require('three')
+var THREE = window.THREE
+
+console.log(THREE, 'three')
 Vue.prototype.$echarts = echarts
 
 Vue.use(Vuex)

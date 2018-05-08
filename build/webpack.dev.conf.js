@@ -34,9 +34,15 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     proxy: config.dev.proxyTable,
     quiet: true, // necessary for FriendlyErrorsPlugin
     watchOptions: {
-      poll: config.dev.poll,
+      poll: config.dev.poll
     }
   },
+  // externals: [{
+  //   var: 'THREE',
+  //   package: 'THREE',
+  //   path: '/node_modules/three/build/three.js',
+  //   chunk: ['index']
+  // }],
   plugins: [
     new webpack.DefinePlugin({
       'process.env': require('../config/dev.env')
@@ -49,7 +55,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       filename: 'index.html',
       template: 'index.html',
       inject: true
-    }),
+    })
   ]
 })
 
