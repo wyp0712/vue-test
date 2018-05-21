@@ -69,6 +69,10 @@ export default new Router({
     {
       path: '/calendar',
       component: resolve => require(['@/pages/calendar/index.vue'], resolve)
+    },
+    {
+      path: '/select',
+      component: resolve => require(['@/pages/select/index.vue'], resolve)
     }
   ]
 })
