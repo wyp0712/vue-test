@@ -65,6 +65,7 @@ module.exports = {
           },
           params: req.query
         }).then((response) => {
+          console.log(response, 'responseresponse')
           var ret = response.data
           if (typeof ret === 'string') {
             //  /* \w:字母、数字、下划线   中间就是以大括号开始，小括号结束且不为（ 、）的字符，一个和多个*/
