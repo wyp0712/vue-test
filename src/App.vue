@@ -2,7 +2,7 @@
 	<div id="app">
 		<!-- <img src="./assets/logo.png"> -->
 		<!-- <img src="../src/assets/1.jpg" alt=""> -->
-		<div id="canvas"></div>
+		<!-- <div id="canvas"></div> -->
 		<router-view/>
 	</div>
 </template>
@@ -24,8 +24,8 @@ export default {
 	font-family: 'Avenir', Helvetica, Arial, sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	text-align: center;
+	/* text-align: center; */
 	color: #2c3e50;
-	margin-top: 30px;
+	/* margin-top: 30px; */
 }
 </style>

@@ -4,6 +4,7 @@ import Router from 'vue-router'
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history',
   routes: [
     // {
     //   path: '/',
@@ -73,6 +74,10 @@ export default new Router({
     {
       path: '/select',
       component: resolve => require(['@/pages/select/index.vue'], resolve)
+    },
+    {
+      path: '/tablePage',
+      component: resolve => require(['@/pages/tablePage/index'], resolve)
     }
   ]
 })
