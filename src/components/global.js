@@ -11,10 +11,12 @@ const requireComponent = require.context(
    // 找到components文件夹下以.vue命名的文件
 
 )
+// console.log(requireComponent().keys(), 'requireComponent')
 
 requireComponent.keys().forEach(fileName => {
 
   const componentConfig = requireComponent(fileName)
+  console.log(componentConfig, 'componentConfig')
 
   const componentName = capitalizeFirstLetter(
 

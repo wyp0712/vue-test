@@ -1,6 +1,9 @@
 <template>
     <div class="head-bar">
        <p v-for="item in msg">{{item.desc}}</p>
+
+
+       <head-bar></head-bar>
     </div>
   </template>
   <script>

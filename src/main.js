@@ -16,6 +16,7 @@ import axios from 'axios'
 import echarts from 'echarts'
 // 组件配置文件 引入组件不必再import
 import './components/global.js'
+
 import './pages/components/global.js'
 
 // var THREE = require('three')

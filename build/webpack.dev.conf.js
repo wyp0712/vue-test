@@ -37,12 +37,6 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       poll: config.dev.poll
     }
   },
-  // externals: [{
-  //   var: 'THREE',
-  //   package: 'THREE',
-  //   path: '/node_modules/three/build/three.js',
-  //   chunk: ['index']
-  // }],
   plugins: [
     new webpack.DefinePlugin({
       'process.env': require('../config/dev.env')
@@ -55,6 +49,9 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       filename: 'index.html',
       template: 'index.html',
       inject: true
+    }),
+    new webpack.ProvidePlugin({
+      three: 'three'
     })
   ]
 })

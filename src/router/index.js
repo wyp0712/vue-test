@@ -4,6 +4,7 @@ import Router from 'vue-router'
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history',
   routes: [
     // {
     //   path: '/',
@@ -73,6 +74,14 @@ export default new Router({
     {
       path: '/select',
       component: resolve => require(['@/pages/select/index.vue'], resolve)
+    },
+    {
+      path: '/map',
+      component: resolve => require(['@/pages/map/index.vue'], resolve)
+    },
+    {
+      path: '/scroll',
+      component: resolve => require(['@/pages/scrollComponent/index.vue'], resolve)
     }
   ]
 })
