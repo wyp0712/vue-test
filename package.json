@@ -11,8 +11,6 @@
     "build": "node build/build.js"
   },
   "dependencies": {
-    "@vislab/FGL": "0.0.16",
-    "@turf/turf": "^5.1.6",
     "axios": "^0.17.1",
     "axios-mock-adapter": "^1.15.0",
     "echarts": "^4.0.4",

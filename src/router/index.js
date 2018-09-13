@@ -55,33 +55,37 @@ export default new Router({
     //   path: '/page11',
     //   component: resolve => require(['@/pages/page11'], resolve)
     // },
-    {
-      path: '/',
-      component: resolve => require(['@/pages/demoElementui/checkbox.vue'], resolve)
-    },
-    {
-      path: '/three',
-      component: resolve => require(['@/pages/three/three.vue'], resolve)
-    },
+    // {
+    //   path: '/',
+    //   component: resolve => require(['@/pages/demoElementui/checkbox.vue'], resolve)
+    // },
+    // {
+    //   path: '/three',
+    //   component: resolve => require(['@/pages/three/three.vue'], resolve)
+    // },
     // {
     //   path: '/flagon',
     //   component: resolve => require(['@/pages/three/threeFalon.vue'], resolve)
     // },
-    {
-      path: '/calendar',
-      component: resolve => require(['@/pages/calendar/index.vue'], resolve)
-    },
+    // {
+    //   path: '/calendar',
+    //   component: resolve => require(['@/pages/calendar/index.vue'], resolve)
+    // },
     {
       path: '/select',
       component: resolve => require(['@/pages/select/index.vue'], resolve)
     },
-    {
-      path: '/map',
-      component: resolve => require(['@/pages/map/index.vue'], resolve)
-    },
+    // {
+    //   path: '/map',
+    //   component: resolve => require(['@/pages/map/index.vue'], resolve)
+    // },
     {
       path: '/scroll',
       component: resolve => require(['@/pages/scrollComponent/index.vue'], resolve)
+    },
+    {
+      path: '/table',
+      component: resolve => require(['@/pages/tablePage/index.vue'], resolve)
     }
   ]
 })

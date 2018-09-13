@@ -1,5 +1,7 @@
-import axios from 'axios';
+import axios from 'axios'
 
-let base = '';
+let base = ''
 
-export const getUserListPage = params => {return axios.get(`${base}/user/listpage`, params).then(res => res.data)}
+export const getUserListPage = params => {
+  return axios.get(`${base}/user/listpage`, params).then(res => res.data)
+}
