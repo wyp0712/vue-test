@@ -2,6 +2,7 @@ import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 import { LoginUsers, Users } from './data/user';
 let _Users = Users;
+console.log(LoginUsers, 'LoginUsers')
 export default {
   init () {
     let mock = new MockAdapter(axios);
@@ -14,7 +15,7 @@ export default {
         mock.onGet('/error').reply(500, {
           msg: 'failure'
         });
-            //获取用户列表（分页）
+        //获取用户列表（分页）
         mock.onGet('/user/listpage').reply(config => {
           let {page, name} = config.params;
           let mockUsers = _Users.filter(user => {
