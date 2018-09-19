@@ -80,6 +80,7 @@ export default new Router({
     //   component: resolve => require(['@/pages/map/index.vue'], resolve)
     // },
     {
+      
       path: '/scroll',
       component: resolve => require(['@/pages/scrollComponent/index.vue'], resolve)
     },
