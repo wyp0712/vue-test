@@ -56,6 +56,8 @@
         this.getdata()
       // },500)
 
+      console.log(three, 'exteral')
+
     },
     methods: {
       getdata() {

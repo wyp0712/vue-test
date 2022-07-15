@@ -1,6 +1,7 @@
 <template>
   <div class="head-bar">
-     <p v-for="item in msg">{{item.desc}}</p>
+     <!-- <p v-for="item in msg">{{item.desc}}</p> -->
+     我是头部组件
   </div>
 </template>
 <script>

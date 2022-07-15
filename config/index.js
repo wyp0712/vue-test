@@ -53,12 +53,7 @@ module.exports = {
     // In our experience, they generally work as expected,
     // just be aware of this issue when enabling this option.
     cssSourceMap: false,
-    externals: [{
-      var: 'THREE',
-      package: 'THREE',
-      path: '/node_modules/three/build/three.js',
-      chunk: ['index']
-    }],
+
     before (apiRoutes) {
       console.log(this.axios)
       apiRoutes.get('/lyric', function (req, res) {
@@ -70,6 +65,7 @@ module.exports = {
           },
           params: req.query
         }).then((response) => {
+          console.log(response, 'responseresponse')
           var ret = response.data
           if (typeof ret === 'string') {
             //  /* \w:字母、数字、下划线   中间就是以大括号开始，小括号结束且不为（ 、）的字符，一个和多个*/
